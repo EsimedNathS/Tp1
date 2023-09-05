@@ -1,17 +1,18 @@
 import 'package:Tp1/tools/FileReader.dart';
 
-int countAl(FileReader) {
-  int counter = 0 ;
-  String current;
-  while ( FileReader.last==1  ){
-
+int countAl(FileReader reader) {
+  var count = 0;
+  var foundA = false;
+  while (!reader.isEndOfFile()) {
+    final c = reader.readNext();
+    if (foundA && (c == 'l')) {
+      count = count + 1;
+    }
+    foundA = c == 'a';
   }
-
-
-  return counter;
+  return count;
 }
 
-exo3(String fileName) {
-  FileReader object = FileReader( fileName ) ;
-  return countAl(object);
+exo3(String filename) {
+  print(countAl(FileReader(filename)));
 }
