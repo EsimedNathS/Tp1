@@ -8,7 +8,7 @@ readWord(FileReader reader){
     var current = reader.readNext();
     int countSpace = 0;
     while ((current != ' ') && (current != ',') && (current != ';') && (current != ':') && (current != '.') && (current != '\n')){
-      countSpace = countSpace + 1;
+      countSpace++;
       finalWord = finalWord + current;
       if (reader.last == -1){
         break;
@@ -19,5 +19,5 @@ readWord(FileReader reader){
       return finalWord;
     }
   }
-  return null;
+  return '';
 }

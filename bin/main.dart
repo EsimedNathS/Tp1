@@ -9,9 +9,10 @@ import 'package:Tp1/tools/FileReader.dart';
 
 
 void main(List<String> arguments) {
-  exo1.exo1();
+  /*exo1.exo1();
   print(exo2.exo2(arguments[0]));
   print(exo3.exo3(arguments[0]));
-  print(exo4.exo4(arguments[0]));
-  print(exo5.read5Words(FileReader.fromString("mot1,.mot2, mot3")));
+  print(exo4.exo4(arguments[0])); */
+  print(exo5.read5Words(FileReader.fromString("mot1,.mot2, mot3, mot4")));
+  print(readWord(FileReader.fromString("One, deux")));
 }
