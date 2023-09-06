@@ -5,6 +5,7 @@ import 'package:Tp1/tp1/exo4.dart';
 import 'package:Tp1/tp1/exo5.dart';
 import 'package:Tp1/tools/FileReader.dart' ;
 import 'package:test/test.dart';
+import 'package:Tp1/tools/TextTools.dart';
 
 main() {
   test('exo1', () {
@@ -36,4 +37,18 @@ main() {
     expect(read5Words(FileReader.fromString("")), []);
     expect(read5Words(FileReader("BellumCivile.txt")), ["ad", "ea", "Caesar", "respondit", "nulli"]);
   });
+  test("exo6", () async
+  {
+    var count = 0;
+    await walkDirectory("textes", (path) {
+      if (count == 0) {
+        expect(path, "textes/code_civil/1.txt");
+      } else if (count == 5) {
+        expect(path, "textes/code_civil/1254.txt");
+      }
+      count++;
+    });
+    expect(count, 98);
+  });
 }
+

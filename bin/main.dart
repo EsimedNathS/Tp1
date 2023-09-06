@@ -4,15 +4,21 @@ import 'package:Tp1/tp1/exo2.dart' as exo2;
 import 'package:Tp1/tp1/exo3.dart' as exo3;
 import 'package:Tp1/tp1/exo4.dart' as exo4;
 import 'package:Tp1/tp1/exo5.dart' as exo5;
+import 'package:Tp1/tp1/exo6.dart' as exo6;
 import 'package:Tp1/tools/TextTools.dart';
 import 'package:Tp1/tools/FileReader.dart';
+import 'dart:io';
 
 
 void main(List<String> arguments) {
   /*exo1.exo1();
   print(exo2.exo2(arguments[0]));
   print(exo3.exo3(arguments[0]));
-  print(exo4.exo4(arguments[0])); */
+  print(exo4.exo4(arguments[0]));
   print(exo5.read5Words(FileReader.fromString("mot1,.mot2, mot3, mot4")));
   print(readWord(FileReader.fromString("One, deux")));
+  exo6.exo6('textes');
+  */
+  print(countWord(FileReader('BellumCivile.txt'), 'sku'));
 }
+
