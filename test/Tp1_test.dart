@@ -1,5 +1,5 @@
 import 'package:Tp1/tp1/exo1.dart';
-import 'package:Tp1/tp1/exo2.dart';
+import 'package:Tp1/tp1/exo1.dart';
 import 'package:Tp1/tp1/exo3.dart';
 import 'package:Tp1/tp1/exo4.dart';
 import 'package:Tp1/tp1/exo5.dart';
@@ -50,5 +50,15 @@ main() {
     });
     expect(count, 98);
   });
+  test("exo7", () async
+  {
+  expect(countWord(FileReader("BellumCivile.txt"), "sed"), 3);
+  expect(countWord(FileReader.fromString("un mot... mais: un autre mot"), "mot"), 2);
+  expect(countWord(FileReader.fromString("une phrase"), "mot"), 0);
+  var result = await search("textes", "Loi");
+  expect(result.length, 49);
+  expect(result.first.count, 6);
+  expect(result.last.count, 1);
+});
 }
 

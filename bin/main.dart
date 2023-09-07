@@ -1,10 +1,12 @@
 import '/Users/nathan/Project de Esimed/Tp1/test/Tp1_test.dart' as test;
 import '../lib/tp1/exo1.dart' as exo1;
-import 'package:Tp1/tp1/exo2.dart' as exo2;
+import 'package:Tp1/tp1/exo1.dart' as exo2;
 import 'package:Tp1/tp1/exo3.dart' as exo3;
 import 'package:Tp1/tp1/exo4.dart' as exo4;
 import 'package:Tp1/tp1/exo5.dart' as exo5;
 import 'package:Tp1/tp1/exo6.dart' as exo6;
+import 'package:Tp1/tp1/exo7.dart' as exo7;
+import 'package:Tp1/tp2/exo1.dart' as exo1Tp2;
 import 'package:Tp1/tools/TextTools.dart';
 import 'package:Tp1/tools/FileReader.dart';
 import 'dart:io';
@@ -18,7 +20,9 @@ void main(List<String> arguments) {
   print(exo5.read5Words(FileReader.fromString("mot1,.mot2, mot3, mot4")));
   print(readWord(FileReader.fromString("One, deux")));
   exo6.exo6('textes');
-  */
   print(countWord(FileReader('BellumCivile.txt'), 'sku'));
+  exo7.exo7('textes', 'Loi');
+   */
+  exo1Tp2.exo1('BellimCivile.txt');
 }
 

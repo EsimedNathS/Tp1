@@ -7,7 +7,18 @@ readWord(FileReader reader){
   while (!reader.isEndOfFile()) {
     var current = reader.readNext();
     int countSpace = 0;
-    while ((current != ' ') && (current != ',') && (current != ';') && (current != ':') && (current != '.') && (current != '\n')){
+    while ((' ' != current) &&
+        ('.' != current) &&
+        (',' != current) &&
+        (';' != current) &&
+        (':' != current) &&
+        ('"' != current) &&
+        ('(' != current) &&
+        (')' != current) &&
+        ('*' != current) &&
+        ('-' != current) &&
+        ('\n' != current) &&
+        ('\r' != current)){
       countSpace++;
       finalWord = finalWord + current;
       if (reader.last == -1){
@@ -44,22 +55,30 @@ int countWord(FileReader reader, String word){
 }
 
 class SearchResult {
-  String filename='';
-  int? count;
+  final filename;
+  int count = 0;
+
+  SearchResult(this.filename, this.count);
 
   @override
-  toString(){
-    return filename;
+  toString() {
+    return '($count) $filename  \n';
   }
 
   @override
-  bool operator ==(Object other) =>
-     other == filename;
-
-  Future<List<SearchResult>> search(String repertory, String word){
-
-
+  bool operator ==(Object other) {
+    var o = other as SearchResult;
+    return filename == o.filename && count == o.count;
   }
+}
 
+Future<List<SearchResult>> search(String repertory, String word) async{
+  List<SearchResult> result = [];
+  await walkDirectory('$repertory', (filename) {
+    int count = countWord(FileReader(filename), word);
+    if (count > 0){ result.add(SearchResult(filename, count)); }
+  });
+  result.sort((a, b) => b.count.compareTo(a.count));
+  return result;
 }
 
